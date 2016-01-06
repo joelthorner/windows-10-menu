@@ -1,0 +1,441 @@
+// +-----------------------------+
+// | CONFIGURATION SASS FILE     |
+// | windows-10-menu style       |
+// | Yeahh!!                     |
+// +-----------------------------+
+
+// VARIABLES
+
+// menu bar width
+$menu-bar-width: 80px;
+
+// width submenu screen > 768px (< 768px is 100%)
+$width-submenu: 600px;
+
+// max width of images inside icons 
+$max-width-img-square: 60px;
+$max-width-icon-font-square: 60px;
+
+// general color menu bar hover items
+$blue-1: #3498db;
+// hover bg color menu bar items
+$gray-items: #666;
+// base color text menu and submenu icons and text
+$color-text: #D0D0D0;
+// basic color bg squares
+$color-squares: #3498db;
+
+// true=effects on, false= effects off
+$effect: true;
+
+// for use disable this variable, value=true
+$disable-demo-extra-css: false;
+
+// -------------------------------
+
+// extra demo css
+@if $disable-demo-extra-css==false {
+	
+	//general bg
+	body{
+		font-family: Lato, sans-serif;
+		background-image: url('../img/bg.jpg');
+		background-size: cover;
+		background-position: right center;
+	}
+	main.page{
+		padding: 15px;
+		color: #FFF;
+		text-align: center;
+
+		& a{
+			color: #3498db;
+			text-decoration: none;
+			&:hover{
+				color: darken(#3498db, 20);
+			}
+		}
+	}
+}
+
+// general
+body, html{
+	height: 100%;
+}
+main.page{
+	margin-right: $menu-bar-width;
+}
+
+/* Menu bar */
+
+// mixin hover-item-menu
+@mixin hover-item-menu {
+	&:hover{
+		color: $blue-1;
+		background-color:	rgba($gray-items, 0.4);
+	}
+	&:active{
+		color: $blue-1;
+		background-color: rgba($gray-items, 0.3);
+	}
+}
+.menu-bar{
+	// menu bar css
+	position: fixed;
+	-webkit-backface-visibility:hidden;
+	z-index: 500;
+	width: $menu-bar-width;
+	height: 100%;
+	right: 0px;
+	top: 0px;
+	background-color: rgba(0,0,0,0.7);
+	z-index: 502;
+
+	// items css
+	& .items{
+		list-style: none;
+		margin: 0px;
+		padding: 0px 0px 70px 0px;
+
+		& li a{
+			color: $color-text;
+			text-decoration: none;
+			display: block;
+			text-align: center;
+			padding: 14px 0px;
+			font-size: 1.2rem;
+			@if $effect{
+				transition: background-color 150ms linear;
+				-webkit-transition: background-color 150ms linear;
+			}
+			@include hover-item-menu;
+			
+			&.active, &.open{
+				color: lighten($color-text, 10);
+				background-color: rgba($gray-items, 0.5);
+
+				&:hover{
+					background-color: rgba($gray-items, 0.6);
+				}
+				&:active{
+					background-color: rgba($gray-items, 0.5);
+				}
+			}
+		}
+	}
+	// hide active effect on opened submenu
+	body.open-submenu &{
+		& .items li a.active{
+			background-color: transparent;
+			@include hover-item-menu;
+		}
+	}
+
+	// footer time zone
+	.footer-menu-bar{
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		line-height: 1.5em;
+		padding: 10px 0px;
+		text-align: center;
+		font-size: 12px;
+		color: darken($color-text, 20);
+		left: 0;
+		background-color: rgba(0, 0, 0, 0.7);
+		border-top: 1px solid #333;
+	}
+}
+
+// class neccesary for scroll plugin
+.scrollable{
+	height: 100%;
+}
+
+/* dropdown menu */
+.w-dropdown-menu{
+	@if $effect {
+		visibility: hidden;
+		opacity: 0;
+		margin-right: -$menu-bar-width;
+		transition: margin-right 350ms, visibility 350ms, opacity 350ms;
+		-webkit-transition: margin-right 350ms, visibility 350ms, opacity 350ms;
+	}@else{
+		display: none;
+	}
+
+	// general css
+	position: fixed;
+	-webkit-backface-visibility:hidden;
+	z-index: 501;
+	right: $menu-bar-width;
+	top: 0px;
+	height: 100%;
+	background-color: rgba(30, 30, 30, 0.9);
+	width: calc(100% - #{$menu-bar-width});
+
+	@media(min-width: 768px){
+		width: $width-submenu;
+	}
+	
+	&.open{
+		@if $effect {
+			visibility: visible;
+			opacity: 1;
+			margin-right: 0px;
+		}@else{
+			display: block;
+		}
+	}
+
+	// cols inside widths and paddings
+	& .menu{
+		&-list{
+			float: left;
+			width: calc(100% - 30px);
+			padding: 15px;
+		}
+		&-grid{
+			float: left;
+			width: calc(100% - 30px);
+			padding: 15px;
+
+			& .menu-subtitle{
+				padding: 15px 0px 10px;
+			}
+		}
+		&-subtitle{
+			color: $color-text;
+			font-size: 12px;
+			display: block;
+			padding: 5px 0px 10px;
+			float: none;
+			clear: both;
+		}
+		@media(min-width: 600px){
+			&-list{
+				width: calc(33.333% - #{(15px+(15px/2))} );
+				padding: 15px 7.5px 15px 15px;
+			}
+			&-grid{
+				width: calc(66.666% - #{(15px+(15px/2))} );
+				padding: 15px 15px 15px 7.5px;
+			}
+		}
+	}
+}
+
+// function for 'random' colors
+@mixin multiple-colors($order){
+	@if $order=="ASC" {
+	   &:nth-child(4n+1) .icon{ background: rgb(22, 145, 190); }
+	   &:nth-child(4n+2) .icon{ background: rgb(22, 107, 162); }
+	   &:nth-child(4n+3) .icon{ background: #1D4056; }
+	   &:nth-child(4n+4) .icon{ background: #34495e; }
+	}@else{
+	   &:nth-child(4n+4) .icon{ background: rgb(22, 145, 190); }
+	   &:nth-child(4n+3) .icon{ background: rgb(22, 107, 162); }
+	   &:nth-child(4n+2) .icon{ background: #1D4056; }
+	   &:nth-child(4n+1) .icon{ background: #34495e; }
+	}
+}
+
+/* items of dropdown menu */
+.user{
+	color: #FFF;
+	text-transform: uppercase;
+	line-height: 40px;
+	font-size: 12px;
+	margin-bottom: 15px;
+
+	& img{
+		height: 40px;
+		width: 40px;
+		border-radius: 50%;
+		display: block;
+		float: left;
+		margin-right: 8px;
+	}
+}
+.apps{
+	list-style: none;
+	font-size: 12px;
+	padding: 0px;
+	margin: 0px 0px 10px 0px;
+	line-height: 30px;
+
+	& li {
+		& a{
+			color: #FFF;
+			padding: 2px;
+			display: block;
+			text-decoration: none;
+			&:hover{
+				background-color: rgba(255, 255, 255, 0.20);
+			}
+			&:active{
+				background-color: rgba(255, 255, 255, 0.25);
+			}
+		}
+
+		& .icon{
+			height: 30px;
+			width: 30px;
+			display: inline-block;
+			text-align: center;
+			line-height: 30px;
+			margin-right: 10px;
+		}
+	   @include multiple-colors("ASC");
+	}
+}
+.w-close{
+	background: none;
+	border: none;
+	color: #FFF;
+	font-size: 1.5em;
+	opacity: 0.5;
+	padding: 2px 9px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	@if $effect {
+		transition: opacity 350ms;
+		-webkit-transition: opacity 350ms;
+	}
+	&:hover{
+		opacity: 0.8;
+	}
+	&:active{
+		opacity: 1;
+	}
+}
+
+// mixin settings square icon item - menu dropdown
+@mixin square-icon($margin, $size) {
+	float: left;
+	position: relative;
+	overflow: hidden;
+	
+	margin: $margin;
+	width: calc(50% - #{$margin*2});
+	padding-bottom: calc(50% - #{$margin*2});
+
+  	& .icon{
+  		background-color: $color-squares;
+		position: absolute;
+		margin: auto;
+		display: block;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		// img css
+  		& .icon-image{
+			max-width: $max-width-img-square;
+			max-height: $max-width-img-square;
+			position: absolute;
+			margin: auto;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			top: 0;
+			padding: 5px;
+			height: calc(100% - 10px);
+			width: calc(100% - 10px);
+  		}
+  		// icon font
+  		& .icon-font{
+  			display: flex;
+		   justify-content: center; /* align horizontal */
+		   align-items: center; /* align vertical */
+
+			padding: 5px;
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			top: 0;
+			margin: auto;
+			height: calc(100% - 10px);
+			width: calc(100% - 10px);
+			max-width: $max-width-icon-font-square;
+			max-height: $max-width-icon-font-square;
+			@if $size=="small" {
+				font-size: 2em;
+			}@else{
+				font-size: 3.5em;
+			}
+			color: #FFF;
+			text-shadow: 1px 1px 0px rgba(0, 0, 10, 0.3);
+  		}
+  		// title css
+  		& .icon-title{
+  			color: #FFF;
+  			font-size: 12px;
+  			text-shadow: 1px 1px 0px rgba(0, 0, 10, 0.5);
+  			position: absolute;
+  			bottom: 0;
+  			left: 0;
+  			margin: 6px;
+  		}
+  		// hover-active icon
+  		&:hover:before{
+  			$border-w: 3px;
+  			content: "";
+			display: block;
+			height: calc(100% - #{$border-w*2});
+			width: calc(100% - #{$border-w*2});
+			position: absolute;
+			border: $border-w solid rgba(255,255,255,0.5);
+
+  		}
+  		&:active{
+  			@if $effect {
+  				transition: transform 150ms;
+  				-webkit-transition: transform 150ms;
+  			}
+  			transform: scale(0.95);
+  		}
+  	}
+}
+
+/* square items */
+.squares{
+	& .square{
+		// space variable
+		$margin: 2px;
+
+		// big square 
+		&-big{
+			@include square-icon($margin, "big");
+			
+			@media(min-width: 480px){
+				width: calc(33.333% - #{$margin*2});
+				padding-bottom: calc(33.333% - #{$margin*2});
+			}
+
+			// bg colors 'random'
+			@include multiple-colors("DESC");
+		}
+		// big square (only container of minisquares)
+		&-mult{
+			margin: 0;
+			float: left;
+			width: 50%;
+
+			@media(min-width: 480px){
+				width: 33.333%;
+			}
+		
+			// minisquares
+			& .sub-square{
+				@include square-icon($margin, "small");
+				
+				// bg colors 'random'
+				@include multiple-colors("DESC");
+			}
+		}
+
+	}
+}

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Windows 10 Menu</title>
+	<link rel="icon" type="image/png" href="img/icon.png">
+
+	<!-- reset css -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+	<!-- icons font css -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<!-- smoth scrollbar - external source (CUSTOMIZED FOR DEMO!! copy copy!!)-->
+	<link rel="stylesheet" href="css/perfect-scrollbar.css">
+	<!-- menu css -->
+	<link rel="stylesheet" href="css/windows-10-menu.css">
+
+	<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+   <![endif]-->
+
+   <!-- Font -->
+   <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+</head>
+<body>
+	
+	<!-- PAGE -->
+	<main class="page">
+		<h1>Windows 10 HTML menu</h1>
+		<h2><small>By <a href="http://joelthorner.com">Joel Thorner</a></small></h2>
+
+	</main><!-- end page -->
+	
+	<!-- MENU -->
+	<aside class="menu-bar">
+		
+		<!-- items menu bar -->
+		<div class="scrollable">
+			<ul class="items">
+				<li>
+					<a href="#" data-toggle="w-dropdown" data-target="#w-dropdown-1">
+						<span class="fa fa-windows"></span>
+					</a>
+				</li>
+
+				<li><a href="#"><span class="fa fa-search"></span></a></li>
+				<li><a href="#"><span class="fa fa-folder"></span></a></li>
+				<li><a href="#" class="active"><span class="fa fa-chrome"></span></a></li>
+				<li><a href="#"><span class="fa fa-comment"></span></a></li>
+				<li><a href="#"><span class="fa fa-music"></span></a></li>
+				<li><a href="#"><span class="fa fa-trash"></span></a></li>
+			</ul>
+				
+			<div class="footer-menu-bar">
+				<span id="date-now"></span>
+			</div>
+
+		</div><!-- end items menu abr -->
+
+		<!-- big menu 1 -->
+		<div id="w-dropdown-1" class="w-dropdown-menu">
+
+			<div class="scrollable">
+				
+				<!-- col 1 -->
+				<div class="menu-list">
+					<!-- user -->
+					<div class="user">
+						<img src="img/default-user-image.png">
+						<span class="name">JOHN DOE</span>
+					</div>
+
+					<!-- list 1 -->
+					<span class="menu-subtitle">Apps</span>
+					<ul class="apps">
+						<li><a href="#"><span class="icon"><span class="fa fa-folder"></span></span> Documents</a></li>
+						<li><a href="#"><span class="icon"><span class="fa fa-home"></span></span> Home</a></li>
+						<li><a href="#"><span class="icon"><span class="fa fa-music"></span></span> Music</a></li>
+						<li><a href="#"><span class="icon"><span class="fa fa-trash"></span></span> Trash</a></li>
+						<li><a href="#"><span class="icon"><span class="fa fa-shopping-basket"></span></span> Shopping</a></li>
+						<li><a href="#"><span class="icon"><span class="fa fa-calendar"></span></span> Calendar</a></li>
+						<li><a href="#"><span class="icon"><span class="fa fa-cogs"></span></span> Settings</a></li>
+						<li><a href="#"><span class="icon"><span class="fa fa-calculator"></span></span> Calculator</a></li>
+						<li><a href="#"><span class="icon"><span class="fa fa-desktop"></span></span> Desktop</a></li>
+					</ul>
+
+				</div><!-- end col 1 -->
+
+				<!-- col 2 -->
+				<div class="menu-grid">
+					<span class="menu-subtitle">Apps</span>
+					
+					<!-- squares-section 1 -->
+					<div class="squares">
+						<div class="square-big">
+							<a class="icon" href="#">
+								<img class="icon-image" src="img/ps.png">
+								<span class="icon-title">Photoshop CS6</span>
+							</a>
+						</div>
+						<div class="square-mult">
+							<div class="sub-square"><a class="icon" href="#"><span class="icon-font fa fa-credit-card"></span></a></div>
+							<div class="sub-square"><a class="icon" href="#"><span class="icon-font fa fa-coffee"></span></a></div>
+							<div class="sub-square"><a class="icon" href="#"><span class="icon-font fa fa-compass"></span></a></div>
+							<div class="sub-square"><a class="icon" href="#"><span class="icon-font fa fa-gamepad"></span></a></div>
+						</div>
+						<div class="square-big">
+							<a class="icon" href="#">
+								<span class="icon-font fa fa-music"></span>
+								<span class="icon-title">Music</span>
+							</a>
+						</div>
+						<div class="square-mult">
+							<div class="sub-square"><a class="icon" href="#"><span class="icon-font fa fa-paint-brush"></span></a></div>
+							<div class="sub-square"><a class="icon" href="#"><span class="icon-font fa fa-newspaper-o"></span></a></div>
+							<div class="sub-square"><a class="icon" href="#"><span class="icon-font fa fa-photo"></span></a></div>
+						</div>
+					</div><!-- end squares-section 1 -->
+
+					<span class="menu-subtitle">Tools</span>
+					
+					<!-- squares-section 2 -->
+					<div class="squares">
+						<div class="square-mult">
+							<div class="sub-square"><a class="icon" href="#"><span class="icon-font fa fa-microphone"></span></a></div>
+							<div class="sub-square"><a class="icon" href="#"><span class="icon-font fa fa-television"></span></a></div>
+							<div class="sub-square"><a class="icon" href="#"><span class="icon-font fa fa-car"></span></a></div>
+							<div class="sub-square"><a class="icon" href="#"><span class="icon-font fa fa-user"></span></a></div>
+						</div>
+						<div class="square-big">
+							<a class="icon" href="#">
+								<span class="icon-font fa fa-firefox"></span>
+								<span class="icon-title">Firefox</span>
+							</a>
+						</div>
+						<div class="square-big">
+							<a class="icon" href="#">
+								<span class="icon-font fa fa-instagram"></span>
+								<span class="icon-title">Instagram</span>
+							</a>
+						</div>
+					</div><!-- end squares-section 2 -->
+
+					<span class="menu-subtitle">Files</span>
+					
+					<!-- squares-section 3 -->
+					<div class="squares">
+						<div class="square-mult">
+							<div class="sub-square"><a class="icon" href="#"><span class="icon-font fa fa-file"></span></a></div>
+							<div class="sub-square"><a class="icon" href="#"><span class="icon-font fa fa-file-text-o"></span></a></div>
+							<div class="sub-square"><a class="icon" href="#"><span class="icon-font fa fa-file-code-o"></span></a></div>
+							<div class="sub-square"><a class="icon" href="#"><span class="icon-font fa fa-file-word-o"></span></a></div>
+						</div>
+						<div class="square-big">
+							<a class="icon" href="#">
+								<span class="icon-font fa fa-file-pdf-o"></span>
+								<span class="icon-title">windows.pdf</span>
+							</a>
+						</div>
+						<div class="square-big">
+							<a class="icon" href="#">
+								<span class="icon-font fa fa-file-zip-o"></span>
+								<span class="icon-title">half-life-3.zip</span>
+							</a>
+						</div>
+						<div class="square-big">
+							<a class="icon" href="#">
+								<span class="icon-font fa fa-file-video-o"></span>
+								<span class="icon-title">vacations.mp4</span>
+							</a>
+						</div>
+						<div class="square-mult">
+							<div class="sub-square"><a class="icon" href="#"><span class="icon-font fa fa-files-o"></span></a></div>
+							<div class="sub-square"><a class="icon" href="#"><span class="icon-font fa fa-file-audio-o"></span></a></div>
+						</div>
+						<div class="square-mult">
+							<div class="sub-square"><a class="icon" href="#"><span class="icon-font fa fa-film"></span></a></div>
+							<div class="sub-square"><a class="icon" href="#"><span class="icon-font fa fa-file-text"></span></a></div>
+							<div class="sub-square"><a class="icon" href="#"><span class="icon-font fa fa-file-powerpoint-o"></span></a></div>
+							<div class="sub-square"><a class="icon" href="#"><span class="icon-font fa fa-file-word-o"></span></a></div>
+						</div>
+					</div><!-- end squares-section 3 -->
+
+				</div><!-- end col 2 -->
+
+			</div>
+
+		</div><!-- end big menu 1 -->
+
+	</aside><!-- end menu -->
+
+
+
+	<!-- jQuery -->
+	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<!-- smoth scroll js -->
+	<script src="js/perfect-scrollbar.jquery.min.js"></script>
+	<!-- demo scripts -->
+	<script src="js/windows-10-menu.js"></script>
+
+</body>
+</html>
