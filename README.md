@@ -6,25 +6,21 @@ HTML windows 10 side menu [snippet]
 ## Demo
 Demo : [joelthorner.com](http://joelthorner.com/snippet/windows-10-menu)
 
-<div id="bigDesc" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne" aria-expanded="true">
-	<div class="panel-body">
-	<h3>Features</h3>
-  <ul>
-   <li>Full responsive</li>
-   <li>Scss configurable file</li>
-   <li>Short js!</li>
-   <li>Modular and expandable</li>
-   <li>Free use <span class="fa fa-smile-o"></span></li>
-  </ul>
+### Features
 
-  <h3>Demo extra requirements</h3>
-  <ul>
-   <li>Any icon font, <a href="http://fortawesome.github.io/Font-Awesome/" target="_blank">Font Awesome</a></li>
-   <li>jQuery 2x</li>
-   <li>Perfect scrollbar plugin <a href="http://noraesae.github.io/perfect-scrollbar/" target="_blank">Perfect scrollbar</a></li>
-  </ul>
+- Full responsive
+- Scss configurable file
+- Short js!
+- Modular and expandable
+- Free use :)
 
-  <h3>Basic structure guide</h3>
+
+### Demo extra requirements
+- Any icon font, [Font Awesome](http://fortawesome.github.io/Font-Awesome/)
+- jQuery 2x
+- Perfect scrollbar plugin [Perfect scrollbar](http://noraesae.github.io/perfect-scrollbar/)
+
+### Basic structure guide
 ```html
 <main class="page"></main>
 <aside class="menu-bar">
@@ -41,5 +37,3 @@ Demo : [joelthorner.com](http://joelthorner.com/snippet/windows-10-menu)
    <div class="scrollable">...</div>
 </div>
 ```
-
-</div>
