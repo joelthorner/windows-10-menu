@@ -4,7 +4,7 @@ Windows-10-menu
 HTML windows 10 side menu [snippet]
 
 ## Demo
-Demo : [joelthorner.com](http://joelthorner.com/snippet/windows-10-menu)
+Demo : [http://joelthorner.github.io/windows-10-menu/](http://joelthorner.github.io/windows-10-menu/)
 
 ### Features
 
